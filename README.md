@@ -102,7 +102,8 @@ npm run start
 
 ### ES Module (ESM)
 
-> ESM 은 CJS와 함께 사용하지 못한다.
+> CJS 보다 최신식으로 동작하는 모듈 시스템   
+ESM 은 CJS 와 함께 사용하지 못한다.
 
 * **:one:** package.json에 **"type": "module"** 추가하여 ES Module 시스템을 사용한다.
 
