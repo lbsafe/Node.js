@@ -203,3 +203,76 @@ ESM 은 CJS 와 함께 사용하지 못한다.
     console.log(mul(1, 2));
     ```
 ***
+
+## Node.js 라이브러리
+
+> 프로그램을 개발할 때 필요한 다양한 기능들을 미리 만들어 모듈화 해놓은 것
+
+**:one:** : :link:[npmjs][npmlink] npmjs 라이브러리 모음 사이트
+    
+[npmlink]: https://www.npmjs.com/ "Go npm"
+
+**:two:** : 연습 기준 라이브러리 설치
+```js
+npm i randomcolor
+```
+
+**:three:** : 설치 확인
+
+- node-modules 폴더 : 설치한 라이브러리가 저장되는 저장소
+- package-lock.json : 정확한 버전 정보를 저장하는 파일
+
+```js
+{
+  "name": "section03",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node src/index.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "type": "module",
+  "dependencies": { 
+    "randomcolor": "^0.6.2" // 라이브러리 이름/버전
+  }
+}
+```
+**:four:** : 라이브러리 사용하기
+
+- 4-1. 라이브러리 불러오기
+
+    ```js
+    // 라이브러리 경로는 from 뒤에 라이브러리 이름만 명시한다.
+    import randomColor from "randomcolor";
+    ```
+
+- 4-2. 라이브러리 사용하기
+    ```js
+    import randomColor from "randomcolor";
+
+    const color = randomColor();
+    console.log(color);
+    ```
+***
+:pushpin: Node.js 패키지 파일을 공유 할 때
+
+> node-modules 폴더나 package-lock.json 파일이 없어도 package.json 파일의 정보가 있으면 npm install 명령어를 통해 필요한 라이브러리를 다시 설치할 수 있다.  
+**:arrow_right: node-modules 폴더를 제외하고 보내준다.**
+
+- package.json 파일 전달
+
+    ```js
+    // package.json의 정보가 남아있는 상태
+    "dependencies": { 
+    "randomcolor": "^0.6.2"
+    }
+    ```
+- 라이브러리 재설치
+
+    ```js
+    npm install // npm i 사용 가능
+    ```
+***
